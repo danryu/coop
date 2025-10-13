@@ -3,13 +3,13 @@
 #include "io-pre.hpp"
 
 // emulate eventfd with socket pipe
-#if defined(_WIN32)
+#if defined(_WIN32) || defined(__APPLE__)
 #include "pipe.hpp"
 #endif
 
 namespace coop {
 struct [[nodiscard]] ThreadEvent {
-#if defined(_WIN32)
+#if defined(_WIN32) || defined(__APPLE__)
     Pipe pipe;
 #else
     int fd = -1;
