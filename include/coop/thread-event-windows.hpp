@@ -1,5 +1,6 @@
 #pragma once
-#include <unistd.h>
+// Remove, as the file uses no POSIX APIs
+// #include <unistd.h>
 
 #include "runner.hpp"
 #include "thread-event-pre.hpp"
