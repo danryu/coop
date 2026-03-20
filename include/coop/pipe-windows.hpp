@@ -2,7 +2,6 @@
 #include <atomic>
 #include <utility>
 
-#define NOMINMAX
 #include <winsock2.h>
 
 #include "assert-def.hpp"

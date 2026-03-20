@@ -8,7 +8,6 @@
 #include <vector>
 
 #if defined(_WIN32)
-#define NOMINMAX
 #include <winsock2.h>
 #else
 #include <poll.h>
