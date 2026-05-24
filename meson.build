@@ -1,6 +1,11 @@
 project('coop', 'cpp', version : '1.2.4', default_options : ['warning_level=3', 'werror=false', 'cpp_std=c++23'])
-add_project_arguments('-Wfatal-errors', language: 'cpp')
-add_project_arguments('-Wno-missing-field-initializers', language: 'cpp')
+cpp_compiler = meson.get_compiler('cpp')
+if cpp_compiler.get_id() == 'msvc'
+  add_project_arguments(['/W3', '/DNOMINMAX'], language: 'cpp')
+else
+  add_project_arguments('-Wfatal-errors', language: 'cpp')
+  add_project_arguments('-Wno-missing-field-initializers', language: 'cpp')
+endif
 
 deps = []
 if host_machine.system() == 'windows'
